@@ -43,16 +43,22 @@ export default function Navigation() {
                 Features
               </button>
               <button 
+                onClick={() => scrollToSection('technical-specs')}
+                className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+              >
+                Architecture
+              </button>
+              <button 
                 onClick={() => scrollToSection('pricing')}
                 className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
               >
                 Pricing
               </button>
               <button 
-                onClick={() => scrollToSection('dashboard')}
+                onClick={() => scrollToSection('services')}
                 className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
               >
-                Dashboard
+                Services
               </button>
               <button 
                 onClick={() => scrollToSection('support')}
@@ -94,16 +100,22 @@ export default function Navigation() {
               Features
             </button>
             <button 
+              onClick={() => scrollToSection('technical-specs')}
+              className="block w-full text-left text-gray-700 hover:text-primary-600 font-medium py-2"
+            >
+              Architecture
+            </button>
+            <button 
               onClick={() => scrollToSection('pricing')}
               className="block w-full text-left text-gray-700 hover:text-primary-600 font-medium py-2"
             >
               Pricing
             </button>
             <button 
-              onClick={() => scrollToSection('dashboard')}
+              onClick={() => scrollToSection('services')}
               className="block w-full text-left text-gray-700 hover:text-primary-600 font-medium py-2"
             >
-              Dashboard
+              Services
             </button>
             <button 
               onClick={() => scrollToSection('support')}

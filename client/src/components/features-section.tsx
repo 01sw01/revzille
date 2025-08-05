@@ -5,33 +5,33 @@ export default function FeaturesSection() {
   const features = [
     {
       icon: Search,
-      title: "Fully Managed Instances",
-      description: "Deploy production-ready Elasticsearch clusters in minutes with automatic scaling, monitoring, and maintenance."
+      title: "Production-Ready Elasticsearch",
+      description: "Deploy clusters with hot-warm-cold architecture, auto-scaling from 1GB to 10TB+, and sub-second query performance optimized for your workload."
     },
     {
       icon: Shield,
-      title: "Enterprise Security",
-      description: "SSL encryption, IP whitelisting, access keys, and compliance-ready configurations out of the box."
+      title: "Zero-Trust Security",
+      description: "RBAC, field-level security, SAML/LDAP integration, network isolation, and compliance certifications (SOC2, ISO27001, GDPR)."
     },
     {
       icon: BarChart3,
-      title: "Kibana Dashboards",
-      description: "Optional visual analytics with customizable dashboards for deep insights into your data."
+      title: "Advanced Machine Learning",
+      description: "Anomaly detection, forecasting, and classification models with built-in Kibana ML jobs for real-time insights and alerting."
     },
     {
       icon: Settings,
-      title: "Flexible Configuration",
-      description: "Choose between quick-start templates or advanced custom configurations to match your exact needs."
+      title: "Infrastructure as Code",
+      description: "Deploy via Terraform, ARM templates, or REST APIs with customizable index templates, ingest pipelines, and retention policies."
     },
     {
       icon: History,
-      title: "Automated Backups",
-      description: "Daily backups, performance tuning, and automated scaling ensure your data is always protected and accessible."
+      title: "Enterprise Operations",
+      description: "Automated snapshots to S3/Azure/GCS, cross-cluster replication, rolling upgrades, and performance monitoring with alerting."
     },
     {
       icon: Headphones,
-      title: "SLA-Backed Support",
-      description: "24/7 expert support with uptime guarantees and comprehensive documentation for peace of mind."
+      title: "Expert Professional Services",
+      description: "Migration assistance, performance tuning, custom integrations, and 24/7 support from certified Elasticsearch engineers."
     }
   ];
 

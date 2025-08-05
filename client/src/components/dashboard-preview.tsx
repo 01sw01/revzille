@@ -6,23 +6,23 @@ export default function DashboardPreview() {
   const features = [
     {
       icon: Gauge,
-      title: "Real-time Monitoring",
-      description: "Track cluster health, performance metrics, and resource utilization in real-time with customizable alerts."
+      title: "Performance Monitoring",
+      description: "Real-time cluster health, JVM metrics, search latency (p95/p99), and resource utilization with ML-based anomaly detection."
     },
     {
       icon: Sliders,
-      title: "Self-service Controls",
-      description: "Scale resources, configure security settings, and manage backups without waiting for support tickets."
+      title: "Infrastructure Management",
+      description: "Auto-scaling policies, hot-warm-cold tier management, snapshot schedules, and security policy configuration via UI."
     },
     {
       icon: TrendingUp,
-      title: "Advanced Analytics",
-      description: "Deep insights into query performance, index optimization, and usage patterns to maximize efficiency."
+      title: "Query & Index Analytics",
+      description: "Query performance profiling, slow query analysis, index size optimization, and shard allocation insights."
     },
     {
       icon: Users,
-      title: "Team Collaboration",
-      description: "Role-based access controls, audit logs, and shared dashboards for seamless team workflows."
+      title: "Multi-tenant Operations",
+      description: "RBAC with field-level security, audit logging, cost allocation by team, and cross-cluster search management."
     }
   ];
 
@@ -85,12 +85,14 @@ export default function DashboardPreview() {
                 {/* Quick stats */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="bg-gradient-to-r from-green-400 to-green-500 rounded-lg p-4 text-white">
-                    <div className="text-2xl font-bold">8</div>
+                    <div className="text-2xl font-bold">12</div>
                     <div className="text-green-100 text-sm">Active Clusters</div>
+                    <div className="text-xs text-green-200 mt-1">3 auto-scaling</div>
                   </div>
                   <div className="bg-gradient-to-r from-blue-400 to-blue-500 rounded-lg p-4 text-white">
-                    <div className="text-2xl font-bold">99.9%</div>
-                    <div className="text-blue-100 text-sm">Uptime</div>
+                    <div className="text-2xl font-bold">142ms</div>
+                    <div className="text-blue-100 text-sm">Avg Query Time</div>
+                    <div className="text-xs text-blue-200 mt-1">P95: 245ms</div>
                   </div>
                 </div>
                 
@@ -104,20 +106,36 @@ export default function DashboardPreview() {
                 
                 {/* Cluster list */}
                 <div className="space-y-3">
-                  <h5 className="font-semibold text-gray-800">Recent Activity</h5>
+                  <h5 className="font-semibold text-gray-800">Cluster Health & Alerts</h5>
                   <div className="bg-gray-50 rounded-lg p-3 flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                      <span className="text-sm">production-search scaled up</span>
+                      <div>
+                        <span className="text-sm font-medium">prod-search-01</span>
+                        <div className="text-xs text-gray-600">3 nodes • 500GB • AWS us-east-1</div>
+                      </div>
                     </div>
-                    <span className="text-xs text-gray-500">2 min ago</span>
+                    <span className="text-xs text-green-600 font-medium">Healthy</span>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3 flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-                      <span className="text-sm">Backup completed</span>
+                      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                      <div>
+                        <span className="text-sm font-medium">analytics-dev</span>
+                        <div className="text-xs text-gray-600">ML job running • High CPU usage</div>
+                      </div>
                     </div>
-                    <span className="text-xs text-gray-500">15 min ago</span>
+                    <span className="text-xs text-yellow-600 font-medium">Scaling</span>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                      <div>
+                        <span className="text-sm font-medium">logs-retention</span>
+                        <div className="text-xs text-gray-600">Hot-warm tier • Snapshot in progress</div>
+                      </div>
+                    </div>
+                    <span className="text-xs text-purple-600 font-medium">Archiving</span>
                   </div>
                 </div>
               </CardContent>

@@ -13,8 +13,9 @@ export default function HeroSection() {
             <br />in the Cloud
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Deploy powerful, scalable search and analytics infrastructure across multiple cloud providers. 
-            Choose where your data lives with consistent, high-performance experience.
+            Deploy enterprise-grade Elasticsearch clusters with advanced machine learning, real-time analytics, 
+            and security features. Get production-ready infrastructure in minutes with 99.99% SLA-backed uptime 
+            across AWS, Azure, GCP, and our private cloud.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">

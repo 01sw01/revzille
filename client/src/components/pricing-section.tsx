@@ -5,33 +5,33 @@ import { Check, Shield, Clock, RotateCcw } from "lucide-react";
 export default function PricingSection() {
   const plans = [
     {
-      name: "Starter",
+      name: "Developer",
       description: "Perfect for development and testing",
       price: "Free",
       period: "/month",
       features: [
-        "1 Elasticsearch cluster",
-        "2GB storage",
-        "Basic Kibana dashboard",
-        "Community support",
-        "99% uptime SLA"
+        "1 Elasticsearch cluster (up to 3 nodes)",
+        "8GB RAM, 2 vCPU, 32GB SSD storage",
+        "Basic Kibana dashboard and monitoring",
+        "Community support and documentation",
+        "99% uptime SLA with standard recovery"
       ],
       buttonText: "Start Free",
       buttonVariant: "outline" as const,
       popular: false
     },
     {
-      name: "Professional",
-      description: "For production workloads",
-      price: "$99",
+      name: "Production",
+      description: "For production workloads and teams",
+      price: "$299",
       period: "/month",
       features: [
-        "5 Elasticsearch clusters",
-        "100GB storage",
-        "Advanced Kibana features",
-        "Priority support",
-        "99.9% uptime SLA",
-        "Multi-cloud deployment"
+        "Up to 10 clusters with auto-scaling",
+        "32GB RAM, 8 vCPU, 500GB SSD per node",
+        "Advanced Kibana ML, alerting, and security",
+        "24/7 priority support with 4-hour SLA",
+        "99.9% uptime SLA with automated failover",
+        "Multi-cloud deployment and VPC peering"
       ],
       buttonText: "Start Trial",
       buttonVariant: "default" as const,
@@ -39,16 +39,16 @@ export default function PricingSection() {
     },
     {
       name: "Enterprise",
-      description: "Custom solutions at scale",
+      description: "Mission-critical at scale",
       price: "Custom",
       period: " pricing",
       features: [
-        "Unlimited clusters",
-        "Custom storage limits",
-        "Dedicated support team",
-        "99.99% uptime SLA",
-        "Custom security options",
-        "Dedicated infrastructure"
+        "Unlimited clusters with dedicated infrastructure",
+        "Custom hardware sizing and hot-warm-cold tiers",
+        "Dedicated support team and solution architect",
+        "99.99% uptime SLA with sub-1min recovery",
+        "Advanced security: RBAC, SAML, audit logging",
+        "Professional services and migration assistance"
       ],
       buttonText: "Contact Sales",
       buttonVariant: "outline" as const,
