@@ -1,86 +1,142 @@
-import { Twitter, Linkedin, Github } from "lucide-react";
+import { Link } from "wouter";
+import { Building } from "lucide-react";
 
 export default function Footer() {
+  const productLinks = [
+    { title: "Elasticsearch", href: "/elasticsearch" },
+    { title: "Kibana", href: "/kibana" },
+    { title: "Machine Learning", href: "/machine-learning" },
+    { title: "Security", href: "/security" }
+  ];
+
+  const solutionLinks = [
+    { title: "Search Applications", href: "/solutions/search" },
+    { title: "Observability", href: "/solutions/observability" },
+    { title: "Security Analytics", href: "/solutions/security" },
+    { title: "Enterprise Search", href: "/solutions/enterprise" }
+  ];
+
+  const companyLinks = [
+    { title: "About Us", href: "/about" },
+    { title: "Careers", href: "/careers" },
+    { title: "Contact", href: "/contact" },
+    { title: "Support", href: "/support" }
+  ];
+
+  const resourceLinks = [
+    { title: "Documentation", href: "/docs" },
+    { title: "Case Studies", href: "/case-studies" },
+    { title: "Migration Guide", href: "/migration" },
+    { title: "Blog", href: "/blog" }
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold gradient-text mb-4">RevaZille</h3>
-            <p className="text-gray-400 mb-6 max-w-md">
-              Fully managed Elasticsearch services by RevaLogix. Deploy powerful, 
-              scalable search infrastructure across multiple cloud providers.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Github className="h-6 w-6" />
-              </a>
+    <footer className="bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {/* Company Info */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center mb-4">
+              <Building className="h-8 w-8 text-primary-400 mr-3" />
+              <div>
+                <h3 className="text-xl font-bold text-white">RevaZille</h3>
+                <p className="text-sm text-gray-400">by RevaLogix</p>
+              </div>
             </div>
+            <p className="text-gray-400 text-sm mb-4">
+              Fully managed Elasticsearch cloud service with enterprise-grade security, 
+              performance, and support across multiple cloud providers.
+            </p>
+            <p className="text-gray-500 text-xs">
+              © 2025 RevaLogix. All rights reserved.
+            </p>
           </div>
-          
+
+          {/* Products */}
           <div>
-            <h4 className="font-semibold mb-4">Product</h4>
+            <h4 className="font-semibold text-white mb-4">Products</h4>
             <ul className="space-y-2">
-              <li>
-                <button 
-                  onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Features
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Pricing
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => document.getElementById('dashboard')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Dashboard
-                </button>
-              </li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API Reference</a></li>
+              {productLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-          
+
+          {/* Solutions */}
           <div>
-            <h4 className="font-semibold mb-4">Support</h4>
+            <h4 className="font-semibold text-white mb-4">Solutions</h4>
             <ul className="space-y-2">
-              <li>
-                <button 
-                  onClick={() => document.getElementById('support')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Documentation
-                </button>
-              </li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Community</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Status Page</a></li>
+              {solutionLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Resources</h4>
+            <ul className="space-y-2">
+              {resourceLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Company</h4>
+            <ul className="space-y-2">
+              {companyLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © 2024 RevaLogix. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Security</a>
+
+        <div className="border-t border-gray-800 mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex space-x-6 text-sm text-gray-400 mb-4 md:mb-0">
+              <Link href="/privacy" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="hover:text-white transition-colors">
+                Terms of Service
+              </Link>
+              <Link href="/security" className="hover:text-white transition-colors">
+                Security
+              </Link>
+            </div>
+            <div className="text-sm text-gray-400">
+              Made with ❤️ for enterprise search and analytics
+            </div>
           </div>
         </div>
       </div>

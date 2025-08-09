@@ -9,6 +9,10 @@ import Kibana from "@/pages/kibana";
 import MachineLearning from "@/pages/machine-learning";
 import Security from "@/pages/security";
 import Pricing from "@/pages/pricing";
+import SearchSolutions from "@/pages/solutions/search";
+import ObservabilitySolutions from "@/pages/solutions/observability";
+import SecuritySolutions from "@/pages/solutions/security";
+import EnterpriseSolutions from "@/pages/solutions/enterprise";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -20,6 +24,10 @@ function Router() {
       <Route path="/machine-learning" component={MachineLearning} />
       <Route path="/security" component={Security} />
       <Route path="/pricing" component={Pricing} />
+      <Route path="/solutions/search" component={SearchSolutions} />
+      <Route path="/solutions/observability" component={ObservabilitySolutions} />
+      <Route path="/solutions/security" component={SecuritySolutions} />
+      <Route path="/solutions/enterprise" component={EnterpriseSolutions} />
       <Route component={NotFound} />
     </Switch>
   );
