@@ -163,9 +163,11 @@ export default function Navigation() {
                 )}
               </div>
               
-              <Button className="bg-primary-500 text-white hover:bg-primary-600">
-                Start Free Trial
-              </Button>
+              <Link href="/trial-signup">
+                <Button className="bg-primary-500 text-white hover:bg-primary-600">
+                  Start Free Trial
+                </Button>
+              </Link>
             </div>
           </div>
           
@@ -237,9 +239,11 @@ export default function Navigation() {
             </div>
 
             <div className="pt-4">
-              <Button className="w-full bg-primary-500 text-white hover:bg-primary-600">
-                Start Free Trial
-              </Button>
+              <Link href="/trial-signup" onClick={() => setIsMenuOpen(false)}>
+                <Button className="w-full bg-primary-500 text-white hover:bg-primary-600">
+                  Start Free Trial
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

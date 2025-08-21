@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Server, Database, TrendingUp, Users, Rocket, Play } from "lucide-react";
+import { Link } from "wouter";
 
 export default function HeroSection() {
   return (
@@ -19,10 +20,12 @@ export default function HeroSection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button size="lg" className="bg-primary-500 text-white hover:bg-primary-600 text-lg px-8 py-4">
-              <Rocket className="mr-2 h-5 w-5" />
-              Start Free Trial
-            </Button>
+            <Link href="/trial-signup">
+              <Button size="lg" className="bg-primary-500 text-white hover:bg-primary-600 text-lg px-8 py-4">
+                <Rocket className="mr-2 h-5 w-5" />
+                Start Free Trial
+              </Button>
+            </Link>
             <Button size="lg" variant="outline" className="border-2 border-primary-500 text-primary-600 hover:bg-primary-50 text-lg px-8 py-4">
               <Play className="mr-2 h-5 w-5" />
               Watch Demo
