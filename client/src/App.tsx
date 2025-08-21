@@ -14,6 +14,7 @@ import ObservabilitySolutions from "@/pages/solutions/observability";
 import SecuritySolutions from "@/pages/solutions/security";
 import EnterpriseSolutions from "@/pages/solutions/enterprise";
 import NotFound from "@/pages/not-found";
+import TrialSignup from "@/pages/trial-signup";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/solutions/observability" component={ObservabilitySolutions} />
       <Route path="/solutions/security" component={SecuritySolutions} />
       <Route path="/solutions/enterprise" component={EnterpriseSolutions} />
+      <Route path="/trial-signup" component={TrialSignup} />
       <Route component={NotFound} />
     </Switch>
   );
