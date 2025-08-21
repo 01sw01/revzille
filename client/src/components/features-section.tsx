@@ -13,11 +13,11 @@ export default function FeaturesSection() {
       title: "Zero-Trust Security",
       description: "RBAC, field-level security, SAML/LDAP integration, network isolation, and compliance certifications (SOC2, ISO27001, GDPR)."
     },
-    {
-      icon: BarChart3,
-      title: "Advanced Machine Learning",
-      description: "Anomaly detection, forecasting, and classification models with built-in Kibana ML jobs for real-time insights and alerting."
-    },
+  // {
+  //    icon: BarChart3,
+  //    title: "Advanced Machine Learning",
+  //    description: "Anomaly detection, forecasting, and classification models with built-in Kibana ML jobs for real-time insights and alerting."
+   // },
     {
       icon: Settings,
       title: "Infrastructure as Code",

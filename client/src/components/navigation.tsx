@@ -40,7 +40,7 @@ export default function Navigation() {
   const productMenuItems = [
     { title: "Elasticsearch", description: "Search and analytics engine", href: "/elasticsearch" },
     { title: "Kibana", description: "Data visualization and exploration", href: "/kibana" },
-    { title: "Machine Learning", description: "AI-powered analytics", href: "/machine-learning" },
+    //{ title: "Machine Learning", description: "AI-powered analytics", href: "/machine-learning" },*/}
     { title: "Security", description: "SIEM and threat detection", href: "/security" }
   ];
 
@@ -81,7 +81,7 @@ export default function Navigation() {
                   onClick={() => toggleDropdown('products')}
                   className="flex items-center text-gray-700 hover:text-primary-600 transition-colors font-medium"
                 >
-                  Products
+                  Features
                   <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${openDropdown === 'products' ? 'rotate-180' : ''}`} />
                 </button>
                 {openDropdown === 'products' && (
@@ -164,7 +164,7 @@ export default function Navigation() {
               </div>
               
               <Button className="bg-primary-500 text-white hover:bg-primary-600">
-                Start Free Trial
+                Let's Work Together
               </Button>
             </div>
           </div>
@@ -238,7 +238,7 @@ export default function Navigation() {
 
             <div className="pt-4">
               <Button className="w-full bg-primary-500 text-white hover:bg-primary-600">
-                Start Free Trial
+                Let's Work Together
               </Button>
             </div>
           </div>

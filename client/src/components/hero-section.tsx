@@ -21,7 +21,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button size="lg" className="bg-primary-500 text-white hover:bg-primary-600 text-lg px-8 py-4">
               <Rocket className="mr-2 h-5 w-5" />
-              Start Free Trial
+              Let's Work Together
             </Button>
             <Button size="lg" variant="outline" className="border-2 border-primary-500 text-primary-600 hover:bg-primary-50 text-lg px-8 py-4">
               <Play className="mr-2 h-5 w-5" />
@@ -57,11 +57,11 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-        
-        {/* Hero Dashboard Preview */}
-        <div className="relative">
+         {/* Hero Dashboard Preview */}
+       
+       {/* <div className="relative">
           <Card className="overflow-hidden shadow-2xl border border-gray-200">
-            {/* Browser mockup header */}
+            
             <div className="bg-gray-100 px-4 py-3 flex items-center space-x-2">
               <div className="w-3 h-3 bg-red-400 rounded-full"></div>
               <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
@@ -73,7 +73,7 @@ export default function HeroSection() {
               </div>
             </div>
             
-            {/* Dashboard content preview */}
+            Dashboard content preview 
             <CardContent className="p-6 bg-gray-50">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <Card className="shadow-sm">
@@ -110,6 +110,7 @@ export default function HeroSection() {
                 </Card>
               </div>
               
+              
               <Card>
                 <CardContent className="p-4">
                   <h3 className="font-semibold text-gray-800 mb-3">Recent Clusters</h3>
@@ -140,6 +141,7 @@ export default function HeroSection() {
             </CardContent>
           </Card>
         </div>
+        */}
       </div>
     </section>
   );
