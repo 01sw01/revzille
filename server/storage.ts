@@ -1,10 +1,6 @@
-import { drizzle } from "drizzle-orm/neon-serverless";
-import { Pool } from "@neondatabase/serverless";
 import { eq } from "drizzle-orm";
 import { type User, type InsertUser, type TrialSignup, type InsertTrialSignup, users, trialSignups } from "@shared/schema";
-
-const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
-const db = drizzle(pool);
+import { db } from "./db";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
