@@ -1,3 +1,6 @@
+import Navigation from "@/components/navigation";
+import Footer from "@/components/footer";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -67,6 +70,12 @@ export default function TrialSignup() {
   };
 
   return (
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      <section >
+       <br></br>
+      </section>
+
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
@@ -185,6 +194,8 @@ export default function TrialSignup() {
           </Form>
         </CardContent>
       </Card>
+    </div>
+    <Footer />
     </div>
   );
 }
