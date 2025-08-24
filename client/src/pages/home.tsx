@@ -4,7 +4,7 @@ import FeaturesSection from "@/components/features-section";
 import TechnicalSpecs from "@/components/technical-specs";
 import MigrationIntegration from "@/components/migration-integration";
 import PricingSection from "@/components/pricing-section";
-import DashboardPreview from "@/components/dashboard-preview";
+//import DashboardPreview from "@/components/dashboard-preview";
 import ProfessionalServices from "@/components/professional-services";
 import SupportSection from "@/components/support-section";
 import CTASection from "@/components/cta-section";
@@ -19,7 +19,7 @@ export default function Home() {
       <TechnicalSpecs />
       <MigrationIntegration />
       <PricingSection />
-      <DashboardPreview />
+     {/* <DashboardPreview /> */}
       <ProfessionalServices />
       <SupportSection />
       <CTASection />

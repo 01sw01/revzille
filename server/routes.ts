@@ -11,6 +11,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/trial-signup", async (req, res) => {
     try {
       const validatedData = insertTrialSignupSchema.parse(req.body);
+      console.log("🔥 TRIAL SIGNUP CALLED! Request body:", req.body);
       
       // Check if email already exists
       const existingSignup = await storage.getTrialSignupByEmail(validatedData.email);
@@ -50,7 +51,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         id: newSignup.id 
       });
     } catch (error: any) {
-      if (error.name === "ZodError") {
+     /* if (error.name === "ZodError") {
         const validationError = fromZodError(error);
         return res.status(400).json({ 
           message: validationError.toString() 
@@ -60,7 +61,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error("Trial signup error:", error);
       res.status(500).json({ 
         message: "Internal server error" 
-      });
+      });*/
+      console.log("🚨🚨🚨 TRIAL SIGNUP ERROR DETAILS:");
+  console.log("Error name:", error.name);
+  console.log("Error message:", error.message);
+  console.log("Error code:", error.code);
+  console.log("Full error object:", JSON.stringify(error, null, 2));
+  
+  if (error.name === "ZodError") {
+    console.log("🔍 Zod validation errors:", error.errors);
+    const validationError = fromZodError(error);
+    return res.status(400).json({ 
+      message: validationError.toString() 
+    });
+  }
+  
+  console.log("🚨🚨🚨 END ERROR DETAILS");
+  console.error("Trial signup error:", error);
+  res.status(500).json({ 
+    message: "Internal server error" 
+  });
     }
   });
 

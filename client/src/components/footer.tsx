@@ -5,7 +5,7 @@ export default function Footer() {
   const productLinks = [
     { title: "Elasticsearch", href: "/elasticsearch" },
     { title: "Kibana", href: "/kibana" },
-    { title: "Machine Learning", href: "/machine-learning" },
+   // { title: "Machine Learning", href: "/machine-learning" },
     { title: "Security", href: "/security" }
   ];
 
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Products</h4>
+            <h4 className="font-semibold text-white mb-4">Features</h4>
             <ul className="space-y-2">
               {productLinks.map((link, index) => (
                 <li key={index}>
