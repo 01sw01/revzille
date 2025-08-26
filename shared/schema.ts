@@ -80,6 +80,7 @@ export const insertTrialSignupSchema = createInsertSchema(trialSignups).pick({
   path: ["confirmPassword"],
 });
 
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertTrialSignup = z.infer<typeof insertTrialSignupSchema>;
