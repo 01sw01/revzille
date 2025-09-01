@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=revzille_db
+      - POSTGRES_USER=revzille_user
+      - POSTGRES_PASSWORD=112233
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db.sql:/docker-entrypoint-initdb.d/init.sql
+
+  app:
+    build: .
+    ports:
+      - "3001:5000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://revzille_user:112233@postgres:5432/revzille_db
+    depends_on:
+      - postgres
+    restart: on-failure
+
+volumes:
+  postgres_data:
