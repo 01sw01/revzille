@@ -1,60 +1,16 @@
---
--- PostgreSQL database dump
---
 
-\restrict L9A5R2NdDgIS36td5hGnqbXGrIuHozcXUIlk1Ds7YQ77XoBKRsNjLTeTTbBpbrz
-
--- Dumped from database version 17.6
--- Dumped by pg_dump version 17.6
-
--- Started on 2025-08-24 16:36:58
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- TOC entry 4805 (class 1262 OID 16388)
--- Name: development; Type: DATABASE; Schema: -; Owner: postgres
 --
 
 CREATE DATABASE development WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'English_United States.1252';
 
 
-ALTER DATABASE development OWNER TO postgres;
-
-\unrestrict L9A5R2NdDgIS36td5hGnqbXGrIuHozcXUIlk1Ds7YQ77XoBKRsNjLTeTTbBpbrz
-\connect development
-\restrict L9A5R2NdDgIS36td5hGnqbXGrIuHozcXUIlk1Ds7YQ77XoBKRsNjLTeTTbBpbrz
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-SET default_tablespace = '';
-
-SET default_table_access_method = heap;
-
+--ALTER DATABASE development OWNER TO postgres;
 --
 -- TOC entry 217 (class 1259 OID 16389)
 -- Name: trial_signups; Type: TABLE; Schema: public; Owner: postgres
 --
+--CREATE USER postgres WITH PASSWORD '112233';
+--GRANT ALL PRIVILEGES ON DATABASE development TO postgres;
 
 CREATE TABLE public.trial_signups (
     id character varying DEFAULT gen_random_uuid() NOT NULL,
@@ -67,7 +23,6 @@ CREATE TABLE public.trial_signups (
 );
 
 
-ALTER TABLE public.trial_signups OWNER TO postgres;
 
 --
 -- TOC entry 218 (class 1259 OID 16400)
@@ -81,7 +36,6 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO postgres;
 
 --
 -- TOC entry 4648 (class 2606 OID 16399)
@@ -125,5 +79,5 @@ ALTER TABLE ONLY public.users
 -- PostgreSQL database dump complete
 --
 
-\unrestrict L9A5R2NdDgIS36td5hGnqbXGrIuHozcXUIlk1Ds7YQ77XoBKRsNjLTeTTbBpbrz
+--\unrestrict L9A5R2NdDgIS36td5hGnqbXGrIuHozcXUIlk1Ds7YQ77XoBKRsNjLTeTTbBpbrz
 
