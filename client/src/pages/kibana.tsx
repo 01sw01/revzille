@@ -150,7 +150,7 @@ export default function KibanaPage() {
               Transform your data into actionable insights with interactive dashboards, 
               machine learning analytics, and real-time monitoring capabilities.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/*<div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-primary-500 text-white hover:bg-primary-600">
                 Explore Kibana
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -158,7 +158,7 @@ export default function KibanaPage() {
               <Button size="lg" variant="outline" className="border-primary-500 text-primary-600">
                 View Demo
               </Button>
-            </div>
+            </div>*/}
           </div>
         </div>
       </section>
@@ -307,7 +307,7 @@ export default function KibanaPage() {
       </section>
 
       {/* Dashboard Preview */}
-      <section className="py-16 bg-white">
+      {/*<section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -366,7 +366,7 @@ export default function KibanaPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* CTA Section */}
       <section className="py-16 bg-primary-600">

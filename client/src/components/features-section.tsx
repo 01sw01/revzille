@@ -6,32 +6,18 @@ export default function FeaturesSection() {
     {
       icon: Search,
       title: "Production-Ready Elasticsearch",
-      description: "Deploy clusters with hot-warm-cold architecture, auto-scaling from 1GB to 10TB+, and sub-second query performance optimized for your workload."
+      description: "Deploy clusters with hot-warm-cold architecture, auto-scaling, and sub-second query performance optimized for your workload."
     },
     {
       icon: Shield,
       title: "Zero-Trust Security",
-      description: "RBAC, field-level security, SAML/LDAP integration, network isolation, and compliance certifications (SOC2, ISO27001, GDPR)."
+      description: "RBAC, field-level security, SAML/LDAP integration, and network isolation."
     },
-  // {
-  //    icon: BarChart3,
-  //    title: "Advanced Machine Learning",
-  //    description: "Anomaly detection, forecasting, and classification models with built-in Kibana ML jobs for real-time insights and alerting."
-   // },
-    {
-      icon: Settings,
-      title: "Infrastructure as Code",
-      description: "Deploy via Terraform, ARM templates, or REST APIs with customizable index templates, ingest pipelines, and retention policies."
-    },
-    {
-      icon: History,
-      title: "Enterprise Operations",
-      description: "Automated snapshots to S3/Azure/GCS, cross-cluster replication, rolling upgrades, and performance monitoring with alerting."
-    },
+
     {
       icon: Headphones,
       title: "Expert Professional Services",
-      description: "Migration assistance, performance tuning, custom integrations, and 24/7 support from certified Elasticsearch engineers."
+      description: "Performance tuning, custom integrations, and 24/7 support from certified Elasticsearch engineers."
     }
   ];
 
@@ -88,7 +74,7 @@ export default function FeaturesSection() {
         </div>
         
         {/* Multi-Cloud Section */}
-        <div className="gradient-bg rounded-2xl p-8 text-white">
+        {/*<div className="gradient-bg rounded-2xl p-8 text-white">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold mb-4">Multi-Cloud, Multi-Flexibility</h3>
@@ -123,7 +109,7 @@ export default function FeaturesSection() {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
     </section>
   );

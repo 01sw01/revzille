@@ -155,7 +155,7 @@ export default function MigrationIntegration() {
           </div>
         </div>
 
-        {/* Integration Options */}
+        {/* Integration Options 
         <div className="bg-gray-50 rounded-2xl p-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
             Enterprise Integrations
@@ -180,7 +180,7 @@ export default function MigrationIntegration() {
               </div>
             ))}
           </div>
-        </div>
+        </div>*/}
 
         {/* Migration Process */}
         <div className="mt-16 text-center">

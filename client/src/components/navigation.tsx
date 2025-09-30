@@ -41,14 +41,14 @@ export default function Navigation() {
     { title: "Elasticsearch", description: "Search and analytics engine", href: "/elasticsearch" },
     { title: "Kibana", description: "Data visualization and exploration", href: "/kibana" },
     //{ title: "Machine Learning", description: "AI-powered analytics", href: "/machine-learning" },*/}
-    { title: "Security", description: "SIEM and threat detection", href: "/security" }
+    //{ title: "Security", description: "SIEM and threat detection", href: "/security" }
   ];
 
   const solutionsMenuItems = [
     { title: "Search Applications", description: "Build powerful search experiences", href: "/solutions/search" },
-    { title: "Observability", description: "Monitor and troubleshoot", href: "/solutions/observability" },
-    { title: "Security Analytics", description: "Detect and respond to threats", href: "/solutions/security" },
-    { title: "Enterprise Search", description: "Find information across your organization", href: "/solutions/enterprise" }
+    { title: "Observability", description: "Monitor and troubleshoot", href: "/solutions/observability" }
+   // { title: "Security Analytics", description: "Detect and respond to threats", href: "/solutions/security" },
+   // { title: "Enterprise Search", description: "Find information across your organization", href: "/solutions/enterprise" }
   ];
 
   const resourcesMenuItems = [
@@ -131,12 +131,12 @@ export default function Navigation() {
                 )}
               </div>
 
-              <Link href="/pricing" className={`text-gray-700 hover:text-primary-600 transition-colors font-medium ${location === '/pricing' ? 'text-primary-600' : ''}`}>
+             {/* <Link href="/pricing" className={`text-gray-700 hover:text-primary-600 transition-colors font-medium ${location === '/pricing' ? 'text-primary-600' : ''}`}>
                 Pricing
-              </Link>
+              </Link>*/}
 
               {/* Resources Dropdown */}
-              <div className="relative">
+              {/*<div className="relative">
                 <button 
                   onClick={() => toggleDropdown('resources')}
                   className="flex items-center text-gray-700 hover:text-primary-600 transition-colors font-medium"
@@ -161,7 +161,7 @@ export default function Navigation() {
                     </div>
                   </div>
                 )}
-              </div>
+              </div>*/}
               
               <Link href="/trial-signup">
                 <Button className="bg-primary-500 text-white hover:bg-primary-600">
@@ -218,13 +218,13 @@ export default function Navigation() {
               ))}
             </div>
 
-            <div className="border-t border-gray-100 pt-2">
+          {/*  <div className="border-t border-gray-100 pt-2">
               <Link href="/pricing" className="block text-gray-700 hover:text-primary-600 font-medium py-2" onClick={() => setIsMenuOpen(false)}>
                 Pricing
               </Link>
             </div>
-
-            <div className="border-t border-gray-100 pt-2">
+*/}
+            {/* <div className="border-t border-gray-100 pt-2">
               <div className="text-sm font-medium text-gray-500 mb-2">Resources</div>
               {resourcesMenuItems.map((item, index) => (
                 <Link 
@@ -236,7 +236,7 @@ export default function Navigation() {
                   {item.title}
                 </Link>
               ))}
-            </div>
+            </div>*/}
 
             <div className="pt-4">
               <Link href="/trial-signup" onClick={() => setIsMenuOpen(false)}>

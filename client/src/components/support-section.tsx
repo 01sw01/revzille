@@ -18,7 +18,7 @@ export default function SupportSection() {
     {
       icon: MessageCircle,
       title: "Community",
-      description: "Join thousands of developers sharing knowledge, best practices, and solutions in our community forum.",
+      description: "Share knowledge, best practices, and solutions in our community forum.",
       linkText: "Join Community →"
     }
   ];
@@ -28,18 +28,18 @@ export default function SupportSection() {
       question: "How quickly can I deploy a cluster?",
       answer: "Most clusters are deployed within 5-10 minutes. Complex configurations may take up to 30 minutes."
     },
-    {
+   /* {
       question: "Can I migrate existing Elasticsearch data?",
       answer: "Yes, we provide migration tools and expert assistance to help you move your existing data seamlessly."
-    },
+    },*/
     {
       question: "What monitoring tools are included?",
       answer: "All plans include real-time monitoring, alerting, and optional Kibana dashboards for visual analytics."
     },
-    {
+   /* {
       question: "How does pricing work for multi-cloud?",
       answer: "Pricing is consistent across all cloud providers. You only pay for the resources you use, regardless of the provider."
-    },
+    },*/
     {
       question: "What security measures are in place?",
       answer: "All clusters include SSL encryption, IP whitelisting, access controls, and compliance-ready configurations."
@@ -56,7 +56,7 @@ export default function SupportSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Expert 
-            <span className="gradient-text"> support</span>
+            <span className="gradient-text"> support </span>
             when you need it
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -64,7 +64,7 @@ export default function SupportSection() {
             and a thriving community of developers.
           </p>
         </div>
-        
+        {/*
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {supportOptions.map((option, index) => (
             <Card key={index} className="bg-white shadow-sm">
@@ -80,7 +80,7 @@ export default function SupportSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </div>*/}
         
         {/* FAQ Section */}
         <Card className="p-8">

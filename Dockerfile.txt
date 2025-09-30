@@ -1,0 +1,30 @@
+# Multi-stage build for full-stack app
+FROM node:18-alpine AS build
+
+# Build client
+WORKDIR /client
+COPY client/package*.json ./
+RUN npm install
+COPY client/ ./
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine AS production
+
+# Set up server
+WORKDIR /server
+COPY server/package*.json ./
+RUN npm install --only=production
+
+# Copy server files
+COPY server/ ./
+
+# Copy built client files to server's public/static directory
+COPY --from=build /app/client/build ./public
+# Adjust the destination path based on where your server serves static files
+
+# Expose server port
+EXPOSE 5000
+
+# Start the server
+CMD ["npm", "start"]

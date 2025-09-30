@@ -19,6 +19,7 @@ CREATE TABLE public.trial_signups (
     email text NOT NULL,
     password text NOT NULL,
     phone_number text NOT NULL,
+    status integer DEFAULT 0 NOT NULL,
     created_at timestamp without time zone DEFAULT now() NOT NULL
 );
 

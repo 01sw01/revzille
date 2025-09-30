@@ -18,9 +18,9 @@ export default function TechnicalSpecs() {
       icon: Cpu,
       category: "Performance & Scaling",
       specs: [
-        "Auto-scaling: 1 node to 100+ node clusters",
-        "Sub-second query response times (<200ms p95)",
-        "Ingest rates up to 1M documents/second",
+        "Auto-scaling",
+        "Fast Sub-second query response times",
+        "Fast Ingest rates",
         "Horizontal scaling with zero downtime"
       ]
     },
@@ -28,7 +28,7 @@ export default function TechnicalSpecs() {
       icon: Network,
       category: "Network & Connectivity",
       specs: [
-        "AWS PrivateLink, Azure Private Endpoint, GCP Private Connect",
+       /* "AWS PrivateLink, Azure Private Endpoint, GCP Private Connect",*/
         "VPC peering and dedicated tenancy options",
         "IP filtering and traffic filters",
         "Load balancing with health checks"
@@ -39,9 +39,9 @@ export default function TechnicalSpecs() {
       category: "Security & Compliance",
       specs: [
         "TLS 1.3 encryption in transit and at rest",
-        "SAML 2.0, LDAP, and OpenID Connect integration",
+        /*"SAML 2.0, LDAP, and OpenID Connect integration",*/
         "Role-based access control (RBAC) with field-level security",
-        "SOC 2 Type II, ISO 27001, GDPR, HIPAA compliance"
+        /*"SOC 2 Type II, ISO 27001, GDPR, HIPAA compliance"*/
       ]
     }
   ];
@@ -50,26 +50,26 @@ export default function TechnicalSpecs() {
     {
       name: "I/O Optimized",
       use_case: "Search & Analytics",
-      specs: "High IOPS, SSD storage, optimized for query performance",
-      memory_storage: "8:1 ratio"
+      specs: "High IOPS, SSD storage, optimized for query performance"
+      //memory_storage: "8:1 ratio"
     },
     {
       name: "Storage Optimized",
       use_case: "Log Analytics",
-      specs: "Large disk capacity, cost-effective for retention",
-      memory_storage: "4:1 ratio"
+      specs: "Large disk capacity, cost-effective for retention"
+      //memory_storage: "4:1 ratio"
     },
     {
       name: "CPU Optimized",
       use_case: "Machine Learning",
-      specs: "High-performance processors for ML workloads",
-      memory_storage: "12:1 ratio"
+      specs: "High-performance processors for ML workloads"
+      //memory_storage: "12:1 ratio"
     },
     {
       name: "Memory Optimized",
       use_case: "Real-time Analytics",
-      specs: "Large RAM for in-memory operations and caching",
-      memory_storage: "16:1 ratio"
+      specs: "Large RAM for in-memory operations and caching"
+      //memory_storage: "16:1 ratio"
     }
   ];
 
@@ -131,11 +131,11 @@ export default function TechnicalSpecs() {
                     <h4 className="font-semibold text-gray-900">{template.use_case}</h4>
                   </div>
                   <p className="text-sm text-gray-600 mb-4">{template.specs}</p>
-                  <div className="bg-primary-50 rounded-lg p-3 text-center">
+                  {/*<div className="bg-primary-50 rounded-lg p-3 text-center">
                     <span className="text-sm font-medium text-primary-700">
                       Memory:Storage {template.memory_storage}
                     </span>
-                  </div>
+                  </div>*/}
                 </CardContent>
               </Card>
             ))}
@@ -143,7 +143,7 @@ export default function TechnicalSpecs() {
         </div>
 
         {/* Performance Metrics */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+         {/* <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Zap className="h-8 w-8 text-green-600" />
@@ -165,8 +165,8 @@ export default function TechnicalSpecs() {
             <h4 className="text-2xl font-bold text-gray-900 mb-2">1M+</h4>
             <p className="text-gray-600">Documents per second ingest rate</p>
           </div>
-        </div>
+        </div>*/}
       </div>
     </section>
-  );
+  )
 }

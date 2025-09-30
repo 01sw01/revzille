@@ -15,7 +15,7 @@ import {
 
 export default function ProfessionalServices() {
   const services = [
-    {
+   /* {
       icon: Database,
       title: "Implementation & Migration",
       description: "Expert-led deployment and migration from existing solutions",
@@ -45,12 +45,13 @@ export default function ProfessionalServices() {
       description: "Enterprise security implementation and audit",
       features: [
         "RBAC and field-level security configuration",
-        "SAML/LDAP integration and SSO setup",
-        "Compliance audit and remediation (SOC2, GDPR)",
+       /*
+         "SAML/LDAP integration and SSO setup",
+       // "Compliance audit and remediation (SOC2, GDPR)",
         "Security monitoring and threat detection"
       ],
       popular: false
-    }
+    }*/
   ];
 
   const supportTiers = [
@@ -80,16 +81,16 @@ export default function ProfessionalServices() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Professional services by 
-            <span className="gradient-text"> certified experts</span>
+            <span className="gradient-text">  experts</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our team of certified Elasticsearch engineers and solution architects 
+            Our team of  Elasticsearch engineers and solution architects 
             ensure successful deployment, optimization, and ongoing operations.
           </p>
         </div>
 
         {/* Professional Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        {/*<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
             <Card key={index} className={`relative ${service.popular ? 'border-2 border-primary-500 shadow-lg' : 'border border-gray-200 shadow-sm'}`}>
               {service.popular && (
@@ -125,10 +126,10 @@ export default function ProfessionalServices() {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </div>*/}
 
         {/* Expert Team Section */}
-        <div className="bg-primary-50 rounded-2xl p-8 mb-16">
+       {/* <div className="bg-primary-50 rounded-2xl p-8 mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -189,7 +190,7 @@ export default function ProfessionalServices() {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         {/* Support Tiers */}
         <div className="text-center mb-8">

@@ -14,10 +14,13 @@ export default function HeroSection() {
             <br />in the Cloud
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Deploy enterprise-grade Elasticsearch clusters with advanced machine learning, real-time analytics, 
-            and security features. Get production-ready infrastructure in minutes with 99.99% SLA-backed uptime 
-            across AWS, Azure, GCP, and our private cloud.
+            Deploy enterprise-grade Elasticsearch clusters with real-time analytics, 
+            and security features. Get production-ready infrastructure in minutes with 99.99% SLA-backed uptime. 
+             
           </p>
+         <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Starts from $1.09 per month
+          </h2>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Link href="/trial-signup">
@@ -26,14 +29,14 @@ export default function HeroSection() {
                 Start Free Trial
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-2 border-primary-500 text-primary-600 hover:bg-primary-50 text-lg px-8 py-4">
+           {/*} <Button size="lg" variant="outline" className="border-2 border-primary-500 text-primary-600 hover:bg-primary-50 text-lg px-8 py-4">
               <Play className="mr-2 h-5 w-5" />
               Watch Demo
-            </Button>
+            </Button>*/}
           </div>
           
           {/* Cloud Provider Logos */}
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 mb-16">
+          {/*<div className="flex flex-wrap justify-center items-center gap-8 opacity-60 mb-16">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center text-white font-bold text-sm">
                 AWS
@@ -58,7 +61,7 @@ export default function HeroSection() {
               </div>
               <span className="font-medium">RevaLogix Cloud</span>
             </div>
-          </div>
+          </div>*/}
         </div>
          {/* Hero Dashboard Preview */}
        

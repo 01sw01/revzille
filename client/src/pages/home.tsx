@@ -2,7 +2,7 @@ import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import FeaturesSection from "@/components/features-section";
 import TechnicalSpecs from "@/components/technical-specs";
-import MigrationIntegration from "@/components/migration-integration";
+//import MigrationIntegration from "@/components/migration-integration";
 import PricingSection from "@/components/pricing-section";
 //import DashboardPreview from "@/components/dashboard-preview";
 import ProfessionalServices from "@/components/professional-services";
@@ -17,7 +17,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <TechnicalSpecs />
-      <MigrationIntegration />
+     {/* <MigrationIntegration />
       <PricingSection />
      {/* <DashboardPreview /> */}
       <ProfessionalServices />
