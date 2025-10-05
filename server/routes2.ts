@@ -1,19 +1,20 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertTrialSignupSchema } from "@shared/schema";
+import { insertCustomerSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import bcrypt from "bcrypt";
 import { sendAdminNotification, sendWelcomeEmail } from "./emailService";
+import PasswordEncryption from "@shared/PasswordEncryption"
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Trial signup endpoint
   app.post("/api/trial-signup", async (req, res) => {
     try {
-      const validatedData = insertTrialSignupSchema.parse(req.body);
+      const validatedData = insertCustomerSchema.parse(req.body);
       
       // Check if email already exists
-      const existingSignup = await storage.getTrialSignupByEmail(validatedData.email);
+      const existingSignup = await storage.getCustomerByEmail(validatedData.email);
       if (existingSignup) {
         return res.status(400).json({ 
           message: "An account with this email already exists" 
@@ -22,6 +23,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Hash password
       const hashedPassword = await bcrypt.hash(validatedData.password, 10);
+
+      //encrypt admin password
+      const encryptor = new PasswordEncryption(process.env.ENCRYPTION_KEY!);
+
+      const encryptedAdminPassword = encryptor.encrypt(validatedData.adminPassword).encryptedData;
       
       // Create trial signup record
       const signupData = {
@@ -30,9 +36,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         email: validatedData.email,
         password: hashedPassword,
         phoneNumber: validatedData.phoneNumber,
+        adminPassword: encryptedAdminPassword,
+        plan: validatedData.plan,
       };
 
-      const newSignup = await storage.createTrialSignup(signupData);
+      const newSignup = await storage.createCustomer(signupData);
 
       // Send emails (admin notification and welcome email)
       await Promise.all([

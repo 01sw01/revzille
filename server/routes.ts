@@ -1,20 +1,24 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertTrialSignupSchema } from "@shared/schema";
+import { insertCustomerSchema } from "@shared/schema";
+import { insertCustomerResourcesSchema } from "@shared/schema";
+import PasswordEncryption from "@shared/PasswordEncryption"
+
 import { fromZodError } from "zod-validation-error";
 import bcrypt from "bcrypt";
 import { sendAdminNotification, sendWelcomeEmail } from "./emailService";
+import { Plane } from "lucide-react";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Trial signup endpoint
   app.post("/api/trial-signup", async (req, res) => {
     try {
-      const validatedData = insertTrialSignupSchema.parse(req.body);
+      const validatedData = insertCustomerSchema.parse(req.body);
       console.log("🔥 TRIAL SIGNUP CALLED! Request body:", req.body);
       
       // Check if email already exists
-      const existingSignup = await storage.getTrialSignupByEmail(validatedData.email);
+      const existingSignup = await storage.getCustomerByEmail(validatedData.email);
       if (existingSignup) {
         return res.status(400).json({ 
           message: "An account with this email already exists" 
@@ -23,6 +27,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Hash password
       const hashedPassword = await bcrypt.hash(validatedData.password, 10);
+
+      //encrypt admin password
+      const encryptor = new PasswordEncryption(process.env.ENCRYPTION_KEY!);
+
+      const encryptedAdminPassword = encryptor.encrypt(validatedData.adminPassword).encryptedData;
       
       // Create trial signup record
       const signupData = {
@@ -31,9 +40,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         email: validatedData.email,
         password: hashedPassword,
         phoneNumber: validatedData.phoneNumber,
+        adminPassword: encryptedAdminPassword,
+        plan: validatedData.plan,
+
       };
 
-      const newSignup = await storage.createTrialSignup(signupData);
+      const newSignup = await storage.createCustomer(signupData);
+
 
       // Send emails (admin notification and welcome email)
       await Promise.all([
@@ -45,6 +58,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }),
         sendWelcomeEmail(validatedData.email, validatedData.name)
       ]);
+
+      /* Creating a customerResources record with only customer ID. Other fields are blank
+      const resourceData = {
+        id: newSignup.id ,
+        network_name: "",
+        es_port: "",
+        kb_port: "",
+        status: -1,
+        subnet: ""
+
+      };
+
+      const newResource = await storage.createCustomerResource(resourceData);*/
       
       res.status(201).json({ 
         message: "Trial signup successful! Welcome email sent.",

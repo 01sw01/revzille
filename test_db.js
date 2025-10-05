@@ -18,7 +18,7 @@ async function checkTable() {
     const result = await client.query(`
       SELECT column_name, data_type, is_nullable
       FROM information_schema.columns 
-      WHERE table_name = 'trial_signups'
+      WHERE table_name = 'customer'
       ORDER BY ordinal_position
     `);
     

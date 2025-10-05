@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, timestamp, integer } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -9,14 +9,27 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
-export const trialSignups = pgTable("trial_signups", {
+export const customerResources = pgTable("customer_resources", {
+  id: varchar("id").primaryKey(),
+  network_name: text("network_name"),
+  es_port: text("es_port"),
+  kb_port: text("kb_port"),
+  status: integer("status"),
+  subnet: text("subnet"),
+});
+
+export const customer = pgTable("customer", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   name: text("name").notNull(),
+  domain: text("domain"),
+  plan: text("plan").notNull(),
+  adminPassword: text("admin_password").notNull(),
   companyName: text("company_name").notNull(),
   email: text("email").notNull().unique(),
   password: text("password").notNull(),
   phoneNumber: text("phone_number").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
+  
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({
@@ -36,12 +49,14 @@ export const insertUserSchema = createInsertSchema(users).pick({
       "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"),
 });
 
-export const insertTrialSignupSchema = createInsertSchema(trialSignups).pick({
+export const insertCustomerSchema = createInsertSchema(customer).pick({
   name: true,
   companyName: true,
   email: true,
   password: true,
   phoneNumber: true,
+  plan:true,
+  adminPassword: true
 }).extend({
   name: z.string()
     .min(1, "Name cannot be blank")
@@ -75,13 +90,33 @@ export const insertTrialSignupSchema = createInsertSchema(trialSignups).pick({
     .transform((val) => val.replace(/\s+/g, '')),
   confirmPassword: z.string()
     .min(8, "Confirm password must be at least 8 characters long"),
+  adminPassword: z.string()
+    .min(8, "Password must be at least 8 characters long")
+    .max(128, "Password cannot be longer than 128 characters")
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/, 
+      "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"),
+
+    plan: z.string()
+    .min(1, "Company name cannot be blank")
+    .trim(),
+
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Passwords don't match",
   path: ["confirmPassword"],
 });
 
+export const insertCustomerResourcesSchema = createInsertSchema(customerResources).pick({
+  id: true,
+  network_name: true,
+  es_port: true,
+  kb_port: true,
+  status: true,
+  subnet: true
+})
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
-export type InsertTrialSignup = z.infer<typeof insertTrialSignupSchema>;
-export type TrialSignup = typeof trialSignups.$inferSelect;
+export type InsertCustomer = z.infer<typeof insertCustomerSchema>;
+export type Customer = typeof customer.$inferSelect;
+export type InsertCustomerResources = z.infer<typeof insertCustomerResourcesSchema>;
+export type CustomerResources = typeof customerResources.$inferSelect;

@@ -1,16 +1,18 @@
 import { eq } from "drizzle-orm";
-import { type User, type InsertUser, type TrialSignup, type InsertTrialSignup, users, trialSignups } from "@shared/schema";
+import { type User,  type InsertUser, Customer, CustomerResources, type InsertCustomer, InsertCustomerResources,  users, customer, customerResources } from "@shared/schema";
 import { db } from "./db";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  getTrialSignupByEmail(email: string): Promise<TrialSignup | undefined>;
-  createTrialSignup(signupData: Omit<InsertTrialSignup, 'confirmPassword'>): Promise<TrialSignup>;
+  getCustomerByEmail(email: string): Promise<Customer | undefined>;
+  createCustomer(signupData: Omit<InsertCustomer, 'confirmPassword'>): Promise<Customer>;
+  createCustomerResource(customerResources: InsertCustomerResources): Promise<CustomerResources>;
 }
 
 export class DbStorage implements IStorage {
+  
   async getUser(id: string): Promise<User | undefined> {
     const result = await db.select().from(users).where(eq(users.id, id));
     return result[0];
@@ -26,15 +28,26 @@ export class DbStorage implements IStorage {
     return result[0];
   }
 
-  async getTrialSignupByEmail(email: string): Promise<TrialSignup | undefined> {
-    const result = await db.select().from(trialSignups).where(eq(trialSignups.email, email));
+  async getCustomerByEmail(email: string): Promise<Customer | undefined> {
+    const result = await db.select().from(customer).where(eq(customer.email, email));
     return result[0];
   }
 
-  async createTrialSignup(signupData: Omit<InsertTrialSignup, 'confirmPassword'>): Promise<TrialSignup> {
-    const result = await db.insert(trialSignups).values(signupData).returning();
+  async createCustomerResource(insertCustomerResources: InsertCustomerResources): Promise<CustomerResources> {
+    const result = await db.insert(customerResources).values(insertCustomerResources).returning();
     return result[0];
   }
+
+  async createCustomer(signupData: Omit<InsertCustomer, 'confirmPassword'>): Promise<Customer> {
+    console.log("🔥 Customer CALLED! Request body:");
+      
+    const result = await db.insert(customer).values(signupData).returning();
+        console.log("🔥 Customer CALLED! Request body:", result[0]);
+
+    return result[0];
+  }
+
+
 }
 
 export const storage = new DbStorage();

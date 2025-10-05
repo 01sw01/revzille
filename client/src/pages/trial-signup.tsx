@@ -4,9 +4,14 @@ import Footer from "@/components/footer";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertTrialSignupSchema, type InsertTrialSignup } from "@shared/schema";
+import { insertCustomerSchema, type InsertCustomer } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Select } from "@/components/ui/select";
+import { SelectItem } from "@/components/ui/select";
+import { SelectTrigger } from "@/components/ui/select";
+import { SelectValue } from "@/components/ui/select";
+import { SelectContent } from "@/components/ui/select";
 import {
   Form,
   FormControl,
@@ -25,12 +30,15 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CheckCircle, Loader2 } from "lucide-react";
 
-export default function TrialSignup() {
+
+
+
+export default function Customer() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
-  const form = useForm<InsertTrialSignup>({
-    resolver: zodResolver(insertTrialSignupSchema),
+  const form = useForm<InsertCustomer>({
+    resolver: zodResolver(insertCustomerSchema),
     defaultValues: {
       name: "",
       companyName: "",
@@ -41,7 +49,7 @@ export default function TrialSignup() {
     },
   });
 
-  const onSubmit = async (data: InsertTrialSignup) => {
+  const onSubmit = async (data: InsertCustomer) => {
     setIsSubmitting(true);
     setSubmitMessage(null);
 
@@ -175,6 +183,45 @@ export default function TrialSignup() {
                     <FormControl>
                       <Input type="password" placeholder="••••••••" {...field} />
                     </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="adminPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Admin Password</FormLabel>
+                    <FormControl>
+                      <Input type="password" placeholder="••••••••" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              
+
+              <FormField
+                control={form.control}
+                name="plan"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Plan</FormLabel>
+                    <Select onValueChange={field.onChange} >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a plan" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="basic">Basic</SelectItem>
+                        <SelectItem value="pro">Pro</SelectItem>
+                        <SelectItem value="enterprise">Enterprise</SelectItem>
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
